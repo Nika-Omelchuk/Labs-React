@@ -1,6 +1,8 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions, Platform} from "react-native";
 
+const { width } = Dimensions.get("window");
+const squareSize = width * 0.2; 
 const ColumnLayoutScreen = () => {
   return (
     <View style={styles.container}>
@@ -20,9 +22,20 @@ const styles = StyleSheet.create({
       backgroundColor: "#e8c7fc",
     },
     square: {
-      width: 80,
-      height: 80,
-      backgroundColor: "red",
+      width: squareSize,
+      height: squareSize,
+      backgroundColor: "red",borderWidth: 2,
+          ...Platform.select({
+              ios: {
+                margin: 10,
+                borderColor: "#d5c9f5",
+              },
+              android: {
+                margin: 5,
+                borderStyle: "dashed",
+                borderColor: "#5f24f2",
+              },
+            }),
     },
     green: {
       backgroundColor: "green",
