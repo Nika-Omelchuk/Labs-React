@@ -15,21 +15,16 @@ export default function App() {
       {layout === "row" && <RowLayoutScreen />}
       {layout === "column" && <ColumnLayoutScreen />}
       {layout === "grid" && <GridLayoutScreen />}
-      <Button
-        title="Switch layout"
-        onPress={() => {setLayout(prev => prev === "row" ? "column" : prev === "column" ? "grid" : "row");
-      }} />
+       <View style={styles.buttonContainer}>
+        <Button title="Row" onPress={() => setLayout("row")} />
+        <Button title="Column" onPress={() => setLayout("column")} />
+        <Button title="Grid" onPress={() => setLayout("grid")} />
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#9756bf",
-  },
   labelContainer: {
     backgroundColor: "#9f89d9",
   },
@@ -37,5 +32,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     margin: 5,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    margin: 10,
   },
 });
