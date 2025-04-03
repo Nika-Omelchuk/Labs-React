@@ -26,6 +26,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   labelContainer: {
+    marginTop: 30,
     backgroundColor: "#9f89d9",
   },
   label: {
