@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Button, View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, Button, View, Text, StyleSheet, Platform } from "react-native";
 import RowLayoutScreen from "./components/RowLayoutScreen.tsx";
 import ColumnLayoutScreen from "./components/ColumnLayoutScreen.tsx";
 import GridLayoutScreen from "./components/GridLayoutScreen.tsx";
@@ -26,8 +26,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
   labelContainer: {
-    marginTop: 30,
     backgroundColor: "#9f89d9",
+    ...Platform.select({
+        ios: {
+          marginTop: 0,
+        },
+        android: {
+           marginTop: 30,
+        },
+      }),
   },
   label: {
     fontSize: 18,
